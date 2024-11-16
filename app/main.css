@@ -1,0 +1,61 @@
+:root {
+  --primary-bg-color: #393E46;
+  --primary-text-color: #FFFFFF;
+  --secondary-bg-color: #F9F7F7;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./views/assets/fonts/Roboto-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./views/assets/fonts/Roboto-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./views/assets/fonts/Roboto-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root{
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--secondary-bg-color);
+	font-family: "Roboto";
+  color: var(--primary-text-color);
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}

@@ -9,7 +9,7 @@ module.exports = {
     filename: "client_bundle.js",
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".jsx"],
+    extensions: [".js", ".ts", ".tsx", ".jsx", ".css"],
   },
   module: {
     rules: [
@@ -31,13 +31,6 @@ module.exports = {
             ],
           },
         },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          "css-loader",
-        ],
       },
       {
         test: /\.(png|svg)$/i,
