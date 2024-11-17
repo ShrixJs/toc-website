@@ -6,8 +6,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const options = {
   extensions: ["ts", "tsx"],
   exclude: "./node_modules/",
-  configType: "flat",
-  eslintPath: require.resolve("eslint"),
 };
 
 module.exports = merge(baseConfig, {

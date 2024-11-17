@@ -1,7 +1,8 @@
 :root {
   --primary-bg-color: #393E46;
-  --primary-text-color: #FFFFFF;
   --secondary-bg-color: #F9F7F7;
+  --primary-text-color: #FFFFFF;
+  --secondary-text-color: #393E46;
 }
 
 @font-face {
@@ -40,6 +41,7 @@ body, html, #root{
   background-color: var(--secondary-bg-color);
 	font-family: "Roboto";
   color: var(--primary-text-color);
+  overflow-x: hidden;
 }
 
 ol, ul {

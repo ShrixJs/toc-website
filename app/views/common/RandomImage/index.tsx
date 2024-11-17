@@ -5,23 +5,26 @@ type Props = {
   width: string;
   height: string;
   alt: string;
-  className: string;
-}
+  className?: string;
+};
 
-const RandomImage: FC<Props> = ({width, height, alt, className}) => {
+const RandomImage: FC<Props> = ({ width, height, alt, className }) => {
   const [hasError, setHasError] = useState(false);
-  const src = hasError ? placeHolderImg : `https://picsum.photos/${width}/${height}.webp`;
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleError = () => setHasError(true);
+  const src = hasError || isLoading ? placeHolderImg : `https://picsum.photos/${width}/${height}.webp`;
 
-  return <img
-            className={className}
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            onError={handleError}
-          />
-}
+  return (
+    <img
+      className={className}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      onError={() => setHasError(true)}
+      onLoad={() => setIsLoading(false)}
+    />
+  );
+};
 
 export default RandomImage;

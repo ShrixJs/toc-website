@@ -13,7 +13,8 @@
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "moduleResolution":"node"
   },
   "include": ["app/**/*"],
   "exclude": ["node_modules", ".eslintrc", "webpack.prod.js", "webpack.dev.js", "webpack.base.js"]

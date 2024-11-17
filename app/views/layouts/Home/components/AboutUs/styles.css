@@ -1,0 +1,35 @@
+.about-us {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  color: var(--secondary-text-color);
+}
+
+.left-side-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  padding-top: 40px;
+}
+
+.left-side h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.circular-logo {
+  border-radius: 50%;
+}
+
+.left-side-about p {
+  max-width: 500px;
+  text-align: center;
+}
+
+iframe {
+  border: 0;
+  border-radius: 1.5%;
+}
