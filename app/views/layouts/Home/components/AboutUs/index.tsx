@@ -11,9 +11,8 @@ const AboutUs = () => (
       <h3>About us</h3>
       <RandomImage
         className="circular-logo"
-        width="40"
-        height="40"
         alt="circular-logo"
+        hasError
       />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis reprehenderit a,

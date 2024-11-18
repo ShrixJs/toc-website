@@ -4,6 +4,9 @@
   align-items: center;
   height: 70px;
   background-color: var(--primary-bg-color);
+  position: sticky;
+  z-index: 50;
+  top: 0;
 }
 
 .right-side {

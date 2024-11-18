@@ -6,12 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import RandomImage from '../../../../common/RandomImage';
 
 import './styles.css';
-
-const SLIDES_CONFIG = [
-  { width: '1200', height: '675', alt: 'Slide 1' },
-  { width: '1400', height: '788', alt: 'Slide 2' },
-  { width: '1600', height: '900', alt: 'Slide 3' },
-];
+import useImage from '../../../../hooks/useImage';
+import SliderSkeleton from './components/SliderSkeleton';
 
 const sliderSettings = {
   dots: true,
@@ -23,24 +19,38 @@ const sliderSettings = {
   customPaging: () => <div className="custom-dot" />,
 };
 
-const Slideshow: FC = () => (
-  <div className="slider-container">
-    <div className="title-overlay">
-      <h1>Business Website</h1>
-    </div>
-    <Slider {...sliderSettings}>
+const Slideshow: FC = () => {
+  const page = Math.floor(Math.random() * 34) + 1;
+  const { resources, hasError, isLoading } = useImage({ type: 'list', page, limit: 3 });
+
+  return (
+    <div className="slideshow-wrapper">
       {
-        SLIDES_CONFIG.map((slide) => (
-          <RandomImage
-            className="slide"
-            width={slide.width}
-            height={slide.height}
-            alt={slide.alt}
-          />
-        ))
-      }
-    </Slider>
-  </div>
-);
+        isLoading
+          ? <SliderSkeleton />
+          : (
+            <div className="slider-container">
+              <div className="title-overlay">
+                <h1>Business Website</h1>
+              </div>
+              <Slider {...sliderSettings}>
+                {
+                  resources?.map((link, i) => (
+                    <RandomImage
+                      key={link}
+                      link={link}
+                      className="slide"
+                      alt={`slide number ${i}`}
+                      hasError={hasError}
+                    />
+                  ))
+                }
+              </Slider>
+            </div>
+          )
+        }
+    </div>
+  );
+};
 
 export default Slideshow;

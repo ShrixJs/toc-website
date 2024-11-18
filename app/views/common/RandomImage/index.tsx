@@ -1,28 +1,25 @@
-import React, { FC, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { FC } from 'react';
 import placeHolderImg from '../../assets/images/placeholder.png';
 
 type Props = {
-  width: string;
-  height: string;
+  link?: string;
   alt: string;
+  hasError: boolean;
   className?: string;
 };
 
-const RandomImage: FC<Props> = ({ width, height, alt, className }) => {
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const src = hasError || isLoading ? placeHolderImg : `https://picsum.photos/${width}/${height}.webp`;
+const RandomImage: FC<Props> = ({ link, hasError, alt, className }) => {
+  const src = hasError ? placeHolderImg : link;
 
   return (
     <img
-      className={className}
       src={src}
+      className={className}
       alt={alt}
-      width={width}
-      height={height}
-      onError={() => setHasError(true)}
-      onLoad={() => setIsLoading(false)}
+      fetchPriority="high"
+      // eslint-disable-next-line react/no-unknown-property
+      onLoadStart={() => console.log('started loading!')}
     />
   );
 };
