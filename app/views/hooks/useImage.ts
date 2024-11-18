@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { getSingleImage, getImageList } from '../../infrastructure/ApiClient';
+import { ApiImage } from '../../infrastructure/types';
 
 type Status = {
   isLoading: boolean;
@@ -37,7 +38,7 @@ const useImage = (requestOptions: RequestOptions) => {
         }
 
         const imageList = await getImageList(requestOptions.page, requestOptions.limit);
-        setResources(imageList?.map((image) => image.download_url) || []);
+        setResources(imageList?.map((image: ApiImage) => image.download_url) || []);
         setStatus({ ...status, isLoading: false });
       } catch (e) {
         setStatus({ ...status, isLoading: false, hasError: true, error: e.message });

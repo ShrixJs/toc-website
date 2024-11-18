@@ -1,0 +1,14 @@
+.work-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: repeat(2, 200px);
+  justify-content: center;
+  gap: 45px;
+  padding-top: 35px;
+}

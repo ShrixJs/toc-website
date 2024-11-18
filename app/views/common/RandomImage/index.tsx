@@ -17,9 +17,6 @@ const RandomImage: FC<Props> = ({ link, hasError, alt, className }) => {
       src={src}
       className={className}
       alt={alt}
-      fetchPriority="high"
-      // eslint-disable-next-line react/no-unknown-property
-      onLoadStart={() => console.log('started loading!')}
     />
   );
 };
