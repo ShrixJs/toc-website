@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import RandomImage from '../../../../common/RandomImage';
 
 import './styles.css';
-import useImage from '../../../../hooks/useImage';
 import SliderSkeleton from './components/SliderSkeleton';
+import useFetchImages from '../../../../hooks/useFetchImages';
 
 const sliderSettings = {
   dots: true,
@@ -20,8 +20,7 @@ const sliderSettings = {
 };
 
 const Slideshow: FC = () => {
-  const page = Math.floor(Math.random() * 34) + 1;
-  const { resources, hasError, isLoading } = useImage({ type: 'list', page, limit: 3 });
+  const { images, isLoading, error } = useFetchImages({ width: 2500, height: 1667, count: 3 });
 
   return (
     <div className="slideshow-wrapper">
@@ -35,13 +34,13 @@ const Slideshow: FC = () => {
               </div>
               <Slider {...sliderSettings}>
                 {
-                  resources?.map((link, i) => (
+                  images.map((link, i) => (
                     <RandomImage
                       key={link}
                       link={link}
                       className="slide"
                       alt={`slide number ${i}`}
-                      hasError={hasError}
+                      hasError={error}
                     />
                   ))
                 }

@@ -5,7 +5,7 @@ import placeHolderImg from '../../assets/images/placeholder.png';
 type Props = {
   link?: string;
   alt: string;
-  hasError: boolean;
+  hasError: Error | null | boolean;
   className?: string;
 };
 

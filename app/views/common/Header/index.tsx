@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 
 import './style.css';
 import RandomImage from '../RandomImage/index';
-import useImage from '../../hooks/useImage';
 import RandomImageSkeleton from '../RandomImage/components/RandomImageSkeleton';
+import useFetchImages from '../../hooks/useFetchImages';
 
 const NAV_OPTIONS = ['Home', 'About Us', 'Our Work', 'Our Products', 'Contact Us'];
 
 const Header: FC = () => {
-  const { resources, isLoading, hasError } = useImage({ type: 'single', width: 40, height: 40 });
+  const { images, isLoading, error } = useFetchImages({ width: 40, height: 40, count: 1 });
 
   return (
     <header className="header">
@@ -16,7 +16,7 @@ const Header: FC = () => {
         {
           isLoading
             ? <RandomImageSkeleton width="40px" height="40px" />
-            : <RandomImage link={resources[0] || ''} hasError={hasError} alt="company-logo" />
+            : <RandomImage link={images[0] || ''} hasError={error} alt="company-logo" />
         }
       </div>
       <div className="right-side">
