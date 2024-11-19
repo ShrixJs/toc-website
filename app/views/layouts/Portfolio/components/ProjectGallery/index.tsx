@@ -10,7 +10,7 @@ type Props = {
 
 const ProjectGallery: FC<Props> = ({ label, images }) => (
   <div className="work-gallery" id={label}>
-    {images.map((img) => <RandomImage alt="work photo" link={img} hasError={!images.length} className="work-photo" />)}
+    {images.map((img) => <RandomImage key={img} alt="work photo" link={img} hasError={!images.length} className="work-photo" />)}
   </div>
 );
 

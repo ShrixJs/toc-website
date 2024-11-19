@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { FC, useState } from 'react';
 import './styles.css';
 
@@ -19,8 +20,10 @@ const ContactUs: FC = () => {
       <h3>Contact Us</h3>
       <div className="contact-us-content">
         <form className="contact-us-form" onSubmit={handleFormSubmit}>
-          <input type="text" value={values?.email} />
-          <textarea />
+          <label htmlFor="e-mail">E-mail</label>
+          <input id="e-mail" type="text" name="e-mail" value={values?.email} />
+          <label htmlFor="message">Message</label>
+          <textarea id="message" name="message" />
           <button type="submit">Send Message</button>
         </form>
         <div className="contact-us-right">

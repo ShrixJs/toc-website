@@ -3,13 +3,10 @@
   border-radius: 5px;
 }
 
-.tab-view.horizontal {
-  border: 1px solid #ccc;
-  border-top: none;
-}
 
 .tab-view.horizontal {
   flex-direction: column;
+  width: 100%;
 }
 
 .tab-controls {
@@ -19,8 +16,13 @@
 
 .tab-content {
   flex: 1;
-  padding: 16px;
+  padding: 48px;
   color: var(--secondary-text-color);
+}
+
+.tab-view.horizontal .tab-content {
+  border: 1px solid #ccc;
+  border-radius: 2px;
 }
 
 

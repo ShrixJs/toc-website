@@ -1,11 +1,17 @@
 .product-details {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
 .product-overview {
   display: flex;
   gap: 50px;
+}
+
+.product-overview img {
+  width: 200px;
+  height: 200px;
 }
 
 .product-description {
