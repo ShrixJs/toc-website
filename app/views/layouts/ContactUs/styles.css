@@ -22,15 +22,34 @@
   gap: 24px;
 }
 
-.contact-us-form input {
+.email-field {
   min-width: 448px;
   padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.email-field.error {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
 }
 
 .contact-us-form textarea {
   min-height: 190px;
   min-width: 448px;
   max-width: 368px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .contact-us-form button {
@@ -57,4 +76,16 @@
 .contact-us-right ul li {
   display: flex;
   gap: 30px;
+}
+
+.success, .failure {
+  text-align: center;
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
 }
