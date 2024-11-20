@@ -7,9 +7,11 @@ import useFetchImages from '../../hooks/useFetchImages';
 
 import './style.css';
 import { SupportedLocales } from '../../../types';
+import LanguageDropdown from '../LanguageDropdown';
 
 type Props = {
-  changeLanguage: (language: SupportedLocales) => void
+  changeLanguage: (language: SupportedLocales) => void;
+  currentLanguage: SupportedLocales;
 };
 
 const NAV_OPTIONS = [
@@ -20,7 +22,7 @@ const NAV_OPTIONS = [
   { name: 'Contact Us', to: '#contact-us', messageKey: 'contactUs' },
 ];
 
-const Header: FC<Props> = ({ changeLanguage }) => {
+const Header: FC<Props> = ({ changeLanguage, currentLanguage }) => {
   const { images, isLoading, error } = useFetchImages({ width: 40, height: 40, count: 1 });
 
   return (
@@ -48,10 +50,7 @@ const Header: FC<Props> = ({ changeLanguage }) => {
             }
           </ul>
         </nav>
-        <select onChange={(e) => changeLanguage(e.target.value as SupportedLocales)}>
-          <option value="en">english</option>
-          <option value="es">spanish</option>
-        </select>
+        <LanguageDropdown changeLanguage={changeLanguage} currentLanguage={currentLanguage} />
       </div>
     </header>
   );

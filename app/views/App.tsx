@@ -18,7 +18,7 @@ const App: FC = () => {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Header changeLanguage={changeLocale} />
+      <Header changeLanguage={changeLocale} currentLanguage={locale} />
       <Home />
       <Portfolio />
       <ContactUs />
