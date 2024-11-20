@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getImages from '../../infrastructure/ApiClient';
+import getImages from '../../api/ApiClient';
 
 interface UseFetchImagesProps {
   width: number;
