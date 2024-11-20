@@ -1,5 +1,6 @@
 import React, { FC, ReactElement, useState } from 'react';
 import './styles.css';
+import { FormattedMessage } from 'react-intl';
 
 type TabProps = { label: string };
 
@@ -21,7 +22,7 @@ const TabView: FC<Props> = ({ children, direction = 'horizontal' }) => {
             className={`tab-btn ${activeTab === index ? 'active' : ''}`}
             onClick={() => setActiveTab(index)}
           >
-            {child.props.label}
+            <FormattedMessage id={child.props.label} />
           </button>
         ))}
       </div>

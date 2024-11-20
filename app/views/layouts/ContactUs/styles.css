@@ -38,6 +38,8 @@
   color: var(--primary-text-color);
   border: none;
   border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .contact-us-right {

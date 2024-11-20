@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -31,7 +32,7 @@ const Slideshow: FC = () => {
           : (
             <div className="slider-container">
               <div className="title-overlay">
-                <h1>Business Website</h1>
+                <h1><FormattedMessage id="businessWebsite" /></h1>
               </div>
               <Slider {...sliderSettings}>
                 {

@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 
 import './style.css';
+import { FormattedMessage } from 'react-intl';
 
 const parameters = [
-  { parameter: 'Param 1', value: 'Green' },
-  { parameter: 'Param 2', value: 'Blue' },
-  { parameter: 'Param 3', value: 'Red' },
-  { parameter: 'Param 4', value: 'Yellow' },
+  { title: 'Param 1', value: 'green' },
+  { title: 'Param 2', value: 'blue' },
+  { title: 'Param 3', value: 'red' },
+  { title: 'Param 4', value: 'yellow' },
 ];
 
 const ParameterTable: FC = () => (
@@ -14,15 +15,15 @@ const ParameterTable: FC = () => (
     <table className="parameter-table">
       <thead>
         <tr>
-          <th>Parameter</th>
-          <th>Value</th>
+          <th><FormattedMessage id="parameter" /></th>
+          <th><FormattedMessage id="value" /></th>
         </tr>
       </thead>
       <tbody>
         {parameters.map((param) => (
           <tr key={param.value}>
-            <td>{param.parameter}</td>
-            <td>{param.value}</td>
+            <td>{param.title}</td>
+            <td><FormattedMessage id={param.value} /></td>
           </tr>
         ))}
       </tbody>

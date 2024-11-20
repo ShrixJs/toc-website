@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
+
 import TabView from '../../common/TabView';
 import ProjectGallery from './components/ProjectGallery';
 import ProductOverview from './components/ProductOverview';
@@ -20,7 +22,7 @@ const Portfolio: FC = () => {
   return !isLoading && (
     <section className="portfolio-container">
       <div id="our-work" className="portfolio-container">
-        <h4 className="portfolio-title">Our Work</h4>
+        <h4 className="portfolio-title"><FormattedMessage id="ourWork" /></h4>
         <TabView key="project-gallery" direction="horizontal">
           {
             tabs.map((tab) => (
@@ -34,7 +36,7 @@ const Portfolio: FC = () => {
         </TabView>
       </div>
       <div id="our-products" className="portfolio-container">
-        <h4 className="portfolio-title">Our products</h4>
+        <h4 className="portfolio-title"><FormattedMessage id="ourProducts" /></h4>
         <TabView key="project-overview" direction="vertical">
           {
             products.map((product) => (

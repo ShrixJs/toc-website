@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import RandomImage from '../../../../common/RandomImage';
 import useFetchImages from '../../../../hooks/useFetchImages';
 
@@ -12,7 +13,7 @@ const AboutUs = () => {
   return (
     <section id="about" className="about-us">
       <div className="left-side-about">
-        <h3>About us</h3>
+        <h3><FormattedMessage id="aboutUs" /></h3>
         <RandomImage
           link={images[0]}
           className="circular-logo"

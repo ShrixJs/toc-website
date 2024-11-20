@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
 import RandomImage from '../../../../common/RandomImage';
 
-import './styles.css';
 import ParameterTable from './components/ParameterTable';
+import './styles.css';
 
 type Props = {
   label: string;
@@ -14,7 +15,7 @@ const ProductOverview: FC<Props> = ({ label, image }) => (
     <div className="product-overview">
       <RandomImage alt="work photo" link={image} hasError={!image} className="pr-photo" />
       <div className="product-description">
-        <h4>{label}</h4>
+        <h4><FormattedMessage id={label} /></h4>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           Sint possimus perspiciatis illo enim voluptatum mollitia,

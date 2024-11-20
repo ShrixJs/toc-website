@@ -1,13 +1,26 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import './style.css';
 import RandomImage from '../RandomImage/index';
 import RandomImageSkeleton from '../RandomImage/components/RandomImageSkeleton';
 import useFetchImages from '../../hooks/useFetchImages';
 
-const NAV_OPTIONS = ['Home', 'About Us', 'Our Work', 'Our Products', 'Contact Us'];
+import './style.css';
+import { SupportedLocales } from '../../../types';
 
-const Header: FC = () => {
+type Props = {
+  changeLanguage: (language: SupportedLocales) => void
+};
+
+const NAV_OPTIONS = [
+  { name: 'Home', to: '#home', messageKey: 'home' },
+  { name: 'About Us', to: '#about', messageKey: 'aboutUs' },
+  { name: 'Our Work', to: '#our-work', messageKey: 'ourWork' },
+  { name: 'Our Products', to: '#our-products', messageKey: 'ourProducts' },
+  { name: 'Contact Us', to: '#contact-us', messageKey: 'contactUs' },
+];
+
+const Header: FC<Props> = ({ changeLanguage }) => {
   const { images, isLoading, error } = useFetchImages({ width: 40, height: 40, count: 1 });
 
   return (
@@ -22,12 +35,22 @@ const Header: FC = () => {
       <div className="right-side">
         <nav className="navigation">
           <ul>
-            {NAV_OPTIONS.map((option) => <li key={option}><a href="#about">{option}</a></li>)}
+            {
+              NAV_OPTIONS.map(
+                (option) => (
+                  <li key={option.name}>
+                    <a href={option.to}>
+                      <FormattedMessage key={option.messageKey} id={option.messageKey} />
+                    </a>
+                  </li>
+                ),
+              )
+            }
           </ul>
         </nav>
-        <select>
-          <option value="english">english</option>
-          <option value="spanish">spanish</option>
+        <select onChange={(e) => changeLanguage(e.target.value as SupportedLocales)}>
+          <option value="en">english</option>
+          <option value="es">spanish</option>
         </select>
       </div>
     </header>
