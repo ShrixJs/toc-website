@@ -3,6 +3,9 @@
   --secondary-bg-color: #F9F7F7;
   --primary-text-color: #FFFFFF;
   --secondary-text-color: #393E46;
+  --thumb-bg-color: #B0B3B8;
+  --tab-controls-bg: #f7f7f7;
+  --dropdown-text-color: #91A5BE;
 }
 
 @font-face {

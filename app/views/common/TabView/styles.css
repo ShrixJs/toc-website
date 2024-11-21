@@ -10,7 +10,7 @@
 
 .tab-controls {
   display: flex;
-  background-color: #f7f7f7;
+  background-color: var(--tab-controls-bg);
 }
 
 .tab-content {
@@ -54,7 +54,7 @@
 
 .tab-view.vertical .tab-btn {
   padding: 10px;
-  background-color: #f7f7f7;
+  background-color: var(--tab-controls-bg);
   cursor: pointer;
 }
 

@@ -39,7 +39,7 @@
 
 .dropdown-item-dot {
   opacity: 0;
-  color: #91A5BE;
+  color: var(--dropdown-text-color);
   transition: all .2s ease-in-out;
 }
 
@@ -49,7 +49,7 @@
 
 .icon {
   font-size: 13px;
-  color: #91A5BE;
+  color: var(--dropdown-text-color);
   transform: rotate(0deg);
   transition: all .2s ease-in-out;
 }
