@@ -4,7 +4,8 @@
   align-items: center;
   height: 70px;
   background-color: var(--primary-bg-color);
-  position: sticky;
+  position: fixed;
+  width: 100%;
   z-index: 50;
   top: 0;
 }
@@ -26,4 +27,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .navigation ul {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 568px) {
+  .navigation ul {
+    text-align: center;
+  }
+
+  .right-side {
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 6px;
+  }
+
+  .logo {
+    display: none;
+  }
 }

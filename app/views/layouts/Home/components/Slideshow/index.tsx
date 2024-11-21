@@ -25,7 +25,7 @@ const Slideshow: FC = () => {
   const { images, isLoading, error } = useFetchImages({ width: 2500, height: 1667, count: 3 });
 
   return (
-    <div className="slideshow-wrapper">
+    <div id="home" className="slideshow-wrapper">
       {
         isLoading
           ? <SliderSkeleton />

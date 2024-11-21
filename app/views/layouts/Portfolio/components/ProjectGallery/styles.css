@@ -12,3 +12,42 @@
   gap: 45px;
   padding-top: 35px;
 }
+
+
+
+@media (max-width: 1024px) {
+  .work-photo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+
+  }
+
+  .work-gallery {
+    gap: 20px;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(2, 150px);
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-gallery {
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(4, 150px);
+  }
+}
+
+@media (max-width: 481px) {
+  .work-gallery {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: repeat(4, 80px);
+  }
+
+  .work-photo {
+    width: 80px;
+    gap: 8px
+  }
+}

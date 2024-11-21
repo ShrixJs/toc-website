@@ -37,7 +37,6 @@
 
 body, html, #root{
   height: 100%;
-  scroll-behavior: smooth;
   background-color: var(--secondary-bg-color);
 	font-family: "Roboto";
   color: var(--primary-text-color);

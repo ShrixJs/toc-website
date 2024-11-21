@@ -57,3 +57,23 @@
 .icon.open {
   transform: rotate(180deg);
 }
+
+
+@media (max-width: 568px) {
+  .dropdown {
+    font-size: 12px;
+    width: 67px;
+  }
+
+  .dropdown-options {
+    width: 64px;
+  }
+
+  .dropdown-item {
+    padding: 3px;
+  }
+
+  .dropdown-item-dot {
+    display: none;
+  }
+}

@@ -33,3 +33,31 @@ iframe {
   border: 0;
   border-radius: 1.5%;
 }
+
+@media (max-width: 1270px) {
+    .about-us {
+      flex-direction: column;
+      gap: 48px;
+    }
+    .right-side-about {
+      align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+  iframe {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (min-width: 1270px) {
+  .left-side-about {
+    flex: 1.5;
+  }
+  .right-side-about {
+    flex: 1;
+  }
+}

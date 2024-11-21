@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useEffect, useState } from 'react';
 import './styles.css';
 import { FormattedMessage } from 'react-intl';
 
@@ -11,9 +11,22 @@ type Props = {
 
 const TabView: FC<Props> = ({ children, direction = 'horizontal' }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
-    <div className={`tab-view ${direction}`}>
+    <div className={`tab-view ${direction && windowWidth > 768 ? direction : 'horizontal'}`}>
       <div className="tab-controls">
         {React.Children.map(children, (child, index) => (
           <button

@@ -25,3 +25,38 @@
   font-size: 25px;
   font-weight: 500;
 }
+
+
+@media (max-width: 768px) {
+  .product-overview img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .product-description {
+    text-align: center;
+  }
+
+  .product-description h4 {
+    font-size: 18px;
+  }
+
+  .product-description p {
+    font-size: 12px;
+  }
+
+  .table-container {
+    width: 100%;
+  }
+
+  .product-details {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 569px) {
+  .product-overview {
+    flex-direction: column;
+    align-items: center;
+  }
+}

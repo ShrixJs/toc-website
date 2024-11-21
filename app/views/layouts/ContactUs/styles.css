@@ -41,6 +41,7 @@ textarea:focus {
 
 .error-message {
   color: red;
+  text-align: center;
 }
 
 .contact-us-form textarea {
@@ -88,4 +89,36 @@ textarea:focus {
 
 .failure {
   color: red;
+}
+
+
+@media (max-width: 1024px) {
+  .contact-us-content {
+    flex-direction: column;
+  }
+
+  .contact-us-form {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-us-right {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-us-form textarea {
+    min-width: 318px;
+  }
+
+  .email-field {
+    min-width: 318px;
+  }
+
+  .error-message {
+    max-width: 318px;
+  }
 }

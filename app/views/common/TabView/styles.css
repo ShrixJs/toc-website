@@ -6,7 +6,6 @@
 
 .tab-view.horizontal {
   flex-direction: column;
-  width: 100%;
 }
 
 .tab-controls {
@@ -75,4 +74,16 @@
 
 .tab-view.vertical .tab-btn.active {
   border-left: 2px solid #6200ee;
+}
+
+@media (max-width: 569px) {
+  .tab-btn {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tab-view.horizontal .tab-content {
+    padding: 78px;
+  }
 }
