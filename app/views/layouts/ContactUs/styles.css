@@ -95,6 +95,8 @@ textarea:focus {
 
 .failure {
   color: red;
+  max-width: 368px;
+  text-align: center;
 }
 
 

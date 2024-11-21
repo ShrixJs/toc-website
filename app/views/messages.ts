@@ -25,9 +25,9 @@ const messages = {
     'Parameter 2': 'Parameter 2',
     'Parameter 3': 'Parameter 3',
     'Parameter 4': 'Parameter 4',
-    emailSentSuccess: 'Email sent successfully',
-    emailFailedToSend: 'An error occurred while sending your message, please try again later',
-    invalidEmailFromat: 'The email format you have entered is invalid',
+    emailSentSuccess: 'Email sent successfully.',
+    emailFailedToSend: 'An error occurred while sending your message, please try again later.',
+    invalidEmailFromat: 'The email format you have entered is invalid.',
   },
   es: {
     home: 'Inicio',
@@ -55,9 +55,9 @@ const messages = {
     'Parameter 2': 'Parámetro 2',
     'Parameter 3': 'Parámetro 3',
     'Parameter 4': 'Parámetro 4',
-    emailSentSuccess: 'Correo enviado con éxito',
-    emailFailedToSend: 'Ocurrió un error al enviar tu mensaje, por favor intenta nuevamente más tarde',
-    invalidEmailFromat: 'El formato del correo electrónico que has ingresado no es válido',
+    emailSentSuccess: 'Correo enviado con éxito.',
+    emailFailedToSend: 'Ocurrió un error al enviar tu mensaje, por favor intenta nuevamente más tarde.',
+    invalidEmailFromat: 'El formato del correo electrónico que has ingresado no es válido.',
   },
 };
 
