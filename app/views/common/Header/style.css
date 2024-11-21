@@ -32,7 +32,8 @@
 .navigation ul button {
   background-color: transparent;
   border: none;
-  color: var(--primary-text-color)
+  color: var(--primary-text-color);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
