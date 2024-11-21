@@ -1,25 +1,37 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import RandomImage from '../../../../common/RandomImage';
+import RandomImageSkeleton from '../../../../common/RandomImage/components/RandomImageSkeleton';
 import useFetchImages from '../../../../hooks/useFetchImages';
 
 import './styles.css';
 
-const GOOGLE_MAPS_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47332.61544702337!2d24.699674842183246!3d42.14411353050403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd108a248763d%3A0x6470d1fa6f1338a0!2sPlovdiv!5e0!3m2!1sen!2sbg!4v1731846284321!5m2!1sen!2sbg';
+const GOOGLE_MAPS_URL = `
+https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47332.61544702337!2d24.699674842183246
+!3d42.14411353050403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd108a248763d
+%3A0x6470d1fa6f1338a0!2sPlovdiv!5e0!3m2!1sen!2sbg!4v1731846284321!5m2!1sen!2sbg
+`;
 
 const AboutUs = () => {
-  const { images, error } = useFetchImages({ width: 40, height: 40, count: 1 });
+  const { images, isLoading, error } = useFetchImages({ width: 40, height: 40, count: 1 });
 
   return (
     <section id="about" className="about-us">
       <div className="left-side-about">
         <h3><FormattedMessage id="aboutUs" /></h3>
-        <RandomImage
-          link={images[0]}
-          className="circular-logo"
-          alt="circular-logo"
-          hasError={error}
-        />
+        {
+          isLoading
+            ? <RandomImageSkeleton width="40px" height="40px" />
+            : (
+              <RandomImage
+                link={images[0]}
+                className="circular-logo"
+                alt="circular-logo"
+                hasError={error}
+              />
+            )
+        }
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis reprehenderit a,
           voluptates, dignissimos consequuntur esse similique delectus commodi,

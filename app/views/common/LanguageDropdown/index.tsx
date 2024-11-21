@@ -42,7 +42,7 @@ const LanguageDropdown: FC<Props> = ({ changeLanguage, currentLanguage }) => {
       </div>
       <div className={`dropdown-options ${isOpen && 'open'}`}>
         {languages.map((language) => (
-          <div role="button" tabIndex={0} className="dropdown-item" onClick={handleChangeLanguage} onKeyDown={handleChangeLanguage} id={language.value}>
+          <div key={language.label} role="button" tabIndex={0} className="dropdown-item" onClick={handleChangeLanguage} onKeyDown={handleChangeLanguage} id={language.value}>
             <span className={`dropdown-item-dot ${language.value === currentLanguage && 'selected'}`}>• </span>
             {language.label}
           </div>

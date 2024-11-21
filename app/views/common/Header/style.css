@@ -29,6 +29,12 @@
   gap: 10px;
 }
 
+.navigation ul button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-text-color)
+}
+
 @media (max-width: 768px) {
   .navigation ul {
     font-size: 12px;

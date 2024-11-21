@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
+import Scrollbars from 'react-custom-scrollbars-2';
 
 import RandomImage from '../RandomImage/index';
 import RandomImageSkeleton from '../RandomImage/components/RandomImageSkeleton';
@@ -9,21 +10,38 @@ import './style.css';
 import { SupportedLocales } from '../../../types';
 import LanguageDropdown from '../LanguageDropdown';
 
+interface CustomScrollbars extends Scrollbars {
+  view: HTMLDivElement;
+}
+
 type Props = {
   changeLanguage: (language: SupportedLocales) => void;
   currentLanguage: SupportedLocales;
+  scrollbarRef: React.RefObject<CustomScrollbars>;
 };
 
 const NAV_OPTIONS = [
-  { name: 'Home', to: '#home', messageKey: 'home' },
-  { name: 'About Us', to: '#about', messageKey: 'aboutUs' },
-  { name: 'Our Work', to: '#our-work', messageKey: 'ourWork' },
-  { name: 'Our Products', to: '#our-products', messageKey: 'ourProducts' },
-  { name: 'Contact Us', to: '#contact-us', messageKey: 'contactUs' },
+  { name: 'Home', to: 'home', messageKey: 'home' },
+  { name: 'About Us', to: 'about', messageKey: 'aboutUs' },
+  { name: 'Our Work', to: 'our-work', messageKey: 'ourWork' },
+  { name: 'Our Products', to: 'our-products', messageKey: 'ourProducts' },
+  { name: 'Contact Us', to: 'contact-us', messageKey: 'contactUs' },
 ];
 
-const Header: FC<Props> = ({ changeLanguage, currentLanguage }) => {
+const Header: FC<Props> = ({ changeLanguage, currentLanguage, scrollbarRef }) => {
   const { images, isLoading, error } = useFetchImages({ width: 40, height: 40, count: 1 });
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element && scrollbarRef.current) {
+      const scrollableView = scrollbarRef.current.view;
+      scrollableView.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <header className="header">
@@ -41,9 +59,9 @@ const Header: FC<Props> = ({ changeLanguage, currentLanguage }) => {
               NAV_OPTIONS.map(
                 (option) => (
                   <li key={option.name}>
-                    <a href={option.to}>
+                    <button className="nav-link" type="button" onClick={() => scrollToSection(option.to)}>
                       <FormattedMessage key={option.messageKey} id={option.messageKey} />
-                    </a>
+                    </button>
                   </li>
                 ),
               )

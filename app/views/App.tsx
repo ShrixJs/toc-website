@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import Scrollbars from 'react-custom-scrollbars-2';
 
@@ -13,6 +13,7 @@ import { SupportedLocales } from '../types';
 import './styles.css';
 
 const App: FC = () => {
+  const scrollbarRef = useRef(null);
   const [locale, setLocale] = useState<SupportedLocales>('en');
 
   const changeLocale = (language: SupportedLocales) => setLocale(language);
@@ -20,7 +21,8 @@ const App: FC = () => {
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <Scrollbars
-        style={{ width: '100%', height: '100%', zIndex: '1' }}
+        ref={scrollbarRef}
+        style={{ width: '100%', height: '100%' }}
         autoHide
         autoHideTimeout={1000}
         autoHideDuration={200}
@@ -28,7 +30,11 @@ const App: FC = () => {
         renderThumbVertical={(props) => <div className="thumb-vertical" {...props} />}
       >
         <div className="main">
-          <Header changeLanguage={changeLocale} currentLanguage={locale} />
+          <Header
+            changeLanguage={changeLocale}
+            currentLanguage={locale}
+            scrollbarRef={scrollbarRef}
+          />
           <Home />
           <Portfolio />
           <ContactUs />
